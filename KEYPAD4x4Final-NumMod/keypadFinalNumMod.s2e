@@ -1,0 +1,77 @@
+{	"extensionName": "KEYPAD4x4FinalNumMod",
+	"description": "4X4 KEYPAD Extension for Arduino",
+	"version": "0.1",
+	"author": "bilal.komati@gmail.com",
+	"homepage": "https://sites.google.com/view/bilalkomati/",
+	"sort":0,
+	"javascriptURL":"js/demo.js",
+  "firmware":"1.0",
+  "extensionPort":0,
+	"blockSpecs": [["w",
+	"KEYPAD ROW1:%n ROW2:%n ROW3:%n ROW4:%n COL1:%n COL2:%n COL3:%n COL4:%n",
+	"KEYPAD",
+	"9",
+	"8",
+	"7",
+	"6",
+	"5",
+	"4",
+	"3",
+	"2",
+	{
+		"setup": "",
+		"inc": "#include \"Keypad.h\"\n#include \"Key.h\"\n#include \"math.h\"\n",
+		"def": "const byte ROWS = 4;\nconst byte COLS = 4;\nchar keys[ROWS][COLS] = {{'1','2','3','A'},{'4','5','6','B'},{'7','8','9','C'},{'*','0','#','D'}};\nbyte rowPins[ROWS] = {{0}, {1}, {2},{3}};\nbyte colPins[COLS] = {{4}, {5}, {6}, {7}};\nKeypad keypad = Keypad( makeKeymap(keys), rowPins, colPins, ROWS, COLS );\nchar key;\ndouble keyNum;\n\ndouble key2Int (char key) {\n  switch (key) {\n    case '0':\n      return 0;\n    case '1':\n      return 1;\n    case '2':\n      return 2;\n    case '3':\n      return 3;\n    case '4':\n      return 4;\n    case '5':\n      return 5;\n    case '6':\n      return 6;\n    case '7':\n      return 7;\n    case '8':\n      return 8;\n    case '9':\n      return 9;\n    default:\n      return NAN;\n  }}\n\n",
+		"work": "key=keypad.getKey();\nkeyNum = key2Int(key);\n",
+		"loop": ""
+	}],
+		["B",
+			"a Key is pressed",
+			"ifKeyPressed",
+			{
+			"setup": "",
+			"inc": "",
+			"def": "",
+			"work": "(key != NO_KEY)",
+			"loop": ""
+	}],
+		["B",
+			"Key pressed is number",
+			"ifKeyPressedNumber",
+			{
+			"setup": "",
+			"inc": "",
+			"def": "",
+			"work": "( !isnan(keyNum) )",
+			"loop": ""
+	}],
+		["R",
+			"Key Pressed Value",
+			"keyPressed",
+			{
+			"setup": "",
+			"inc": "",
+			"def": "",
+			"work": "key",
+			"loop": ""
+	}],
+		["R",
+			"Numerical Key Pressed Value",
+			"keyPressedNum",
+			{
+			"setup": "",
+			"inc": "",
+			"def": "",
+			"work": "keyNum",
+			"loop": ""
+	}]],
+	"menus": {
+		
+	},
+	"values": {
+		
+	},
+	"translators": {
+		
+	}
+}

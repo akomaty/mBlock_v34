@@ -1,0 +1,116 @@
+{	"extensionName": "LCD16x02I2C",
+	"description": "LCD16x02I2C Extension for Arduino",
+	"version": "0.1",
+	"author": "bilal.komati@gmail.com - akomaty@gmail.com",
+	"homepage": "https://sites.google.com/view/bilalkomati/",
+	"sort":0,
+	"javascriptURL":"js/demo.js",
+	"firmware":"1.0",
+	"extensionPort":0,
+	"blockSpecs":
+	[
+		["w",
+			"LCD Show Text %s at row %d.row and column %d.column",
+			"LCD print at cursor",
+			"Hello World!",
+			"1",
+			"1",
+			{
+				"inc": "#include \"Wire.h\"\n#include \"LiquidCrystal_I2C.h\"\n",
+				"def": "LiquidCrystal_I2C lcd(0x27,16,2);",
+				"setup": "lcd.init();\nlcd.backlight();\n",
+				"work": "lcd.setCursor({2}-1,{1}-1);\nlcd.print({0});\n",
+				"loop": ""
+			}
+		],
+		["w",
+			"go to the line %d.row",
+			"go to the line",
+			"1",
+			{
+				"inc": "#include \"Wire.h\"\n#include \"LiquidCrystal_I2C.h\"\n",
+				"def": "LiquidCrystal_I2C lcd(0x27,16,2);",
+				"setup": "lcd.init();\nlcd.backlight();\n",
+				"work": "lcd.setCursor(1-1,{0}-1);\n",
+				"loop": ""
+			}
+		],
+		["w",
+			"LCD Show Text %s",
+			"LCD print",
+			"Hello World!",
+			"1",
+			"1",
+			{
+				"inc": "#include \"Wire.h\"\n#include \"LiquidCrystal_I2C.h\"\n",
+				"def": "LiquidCrystal_I2C lcd(0x27,16,2);",
+				"setup": "lcd.init();\nlcd.backlight();\n",
+				"work": "lcd.print({0});\n",
+				"loop": ""
+			}
+		],
+		["w",
+			"LCD Clear",
+			"LCD Clear",
+			{
+				"inc": "#include \"Wire.h\"\n#include \"LiquidCrystal_I2C.h\"\n",
+				"def": "LiquidCrystal_I2C lcd(0x27,16,2);",
+				"setup": "lcd.init();\nlcd.backlight();\n",
+				"work": "lcd.clear();\n",
+				"loop": ""
+			}
+		],
+		["w",
+			"Turn Backlight %d.digital",
+			"LCD Backlight",
+			"On",
+			{
+				"inc": "#include \"Wire.h\"\n#include \"LiquidCrystal_I2C.h\"\n",
+				"def": "LiquidCrystal_I2C lcd(0x27,16,2);",
+				"setup": "lcd.init();\n",
+				"work": "if({0}==1)\n	lcd.backlight();\nelse\n	lcd.noBacklight();\n",
+				"loop": ""
+			}
+		],
+		["w",
+			"Blink Cursor %d.digital",
+			"LCD Blink Cursor",
+			"On",
+			{
+				"inc": "#include \"Wire.h\"\n#include \"LiquidCrystal_I2C.h\"\n",
+				"def": "LiquidCrystal_I2C lcd(0x27,16,2);",
+				"setup": "lcd.init();\n",
+				"work": "if({0}==1)\n	lcd.blink();\nelse\n	lcd.noBlink();\n",
+				"loop": ""
+			}
+		],
+	],
+	"menus": {
+		"digital":["On","Off"],
+		"row":["1","2"],
+		"column":["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16"],
+	},
+	"values": {
+		"On":1,
+		"Off":0,
+		"1":1,
+		"2":2,
+		"3":3,
+		"4":4,
+		"5":5,
+		"6":6,
+		"7":7,
+		"8":8,
+		"9":9,
+		"10":10,
+		"11":11,
+		"12":12,
+		"13":13,
+		"14":14,
+		"15":15,
+		"16":16
+	},
+	"translators": {
+		
+	}
+}

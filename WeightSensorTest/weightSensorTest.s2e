@@ -1,0 +1,67 @@
+{	"extensionName": "WeightSensorTest",
+	"description": "Weight Sensor Extension for Arduino",
+	"version": "0.1",
+	"author": "bilal.komati@gmail.com",
+	"homepage": "https://sites.google.com/view/bilalkomati/",
+	"sort":0,
+	"javascriptURL":"js/demo.js",
+	"firmware":"1.0",
+	"extensionPort":0,
+	"blockSpecs":
+	[
+		["w",
+			"Scale Pins: %m.analog_pin & %m.analog_pin ",
+			"Scale",
+			"A1",
+			"A0",
+			{
+				"inc": "#include \"WHX711.h\"\n",
+				"def": "HX711 scale({0}, {1});\n",
+				"setup": "",
+				"work": "",
+				"loop": ""
+			}
+		],
+		["w",
+			"Calibrate Scale using weight %n grams",
+			"Calibrate",
+			"100",
+			{
+				"inc": "",
+				"def": "",
+				"setup": "",
+				"work": "int scaleValue;\n scale.set_scale();\n scale.tare();\n scaleValue = scale.get_units(10);\n scale.set_scale(scaleValue/{0});\n",
+				"loop": ""
+			}
+		],
+		["R",
+			"Read Scale Value in Volts",
+			"read",
+			{
+			"setup": "",
+			"inc": "",
+			"def": "",
+			"work": "scale.get_value(5);\n",
+			"loop": ""
+	}],
+		["R",
+			"Read Scale Value in Kg",
+			"read",
+			{
+			"setup": "",
+			"inc": "",
+			"def": "",
+			"work": "scale.get_units(5);\n",
+			"loop": ""
+	}],
+	],
+	"menus": {
+		"analog_pin": ["A0", "A1", "A2", "A3", "A4", "A5", "A6", "A7"],
+	},
+	"values": {
+		
+	},
+	"translators": {
+		
+	}
+}

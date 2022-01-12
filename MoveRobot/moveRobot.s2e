@@ -1,0 +1,156 @@
+{	"extensionName": "MoveRobot",
+	"description": "Move Robot Forward",
+	"version": "0.1",
+	"author": "bilal.komati@gmail.com",
+	"homepage": "https://sites.google.com/view/bilalkomati/",
+	"sort":0,
+	"javascriptURL":"js/demo.js",
+	"firmware":"1.0",
+	"extensionPort":0,
+	"blockSpecs":
+	[
+		["w",
+			"move Robot forward for %n steps",
+			"move Robot forward for some number of steps",
+			"1",
+			{
+				"inc": "#include \"stem.h\"",
+				"def": "Robot r;\n",
+				"setup": "\n",
+				"work": "r.resetMotorEncoder(motorR);\nr.resetMotorEncoder(motorL);\nr.setEncoderTarget(motorR,360*{0});\nr.setEncoderTarget(motorL,360*{0});\nr.moveMotor(motorR,50);\nr.moveMotor(motorL,50);\nr.wait();\n",
+				"loop": ""
+			}
+		],
+		["w",
+			"move Robot backward for %n steps",
+			"move Robot backward for some number of steps",
+			"1",
+			{
+				"inc": "#include \"stem.h\"",
+				"def": "Robot r;\n",
+				"setup": "\n",
+				"work": "r.resetMotorEncoder(motorR);\nr.resetMotorEncoder(motorL);\nr.setEncoderTarget(motorR,360*{0});\nr.setEncoderTarget(motorL,360*{0});\nr.moveMotor(motorR,-50);\nr.moveMotor(motorL,-50);\nr.wait();\n",
+				"loop": ""
+			}
+		],
+		["w",
+			"move Robot forward",
+			"move Robot forward indefinetly",
+			"1",
+			{
+				"inc": "#include \"stem.h\"",
+				"def": "Robot r;\n",
+				"setup": "\n",
+				"work": "r.resetMotorEncoder(motorR);\nr.resetMotorEncoder(motorL);\nr.moveMotor(motorR,50);\nr.moveMotor(motorL,50);\n",
+				"loop": ""
+			}
+		],
+		["w",
+			"move Robot backwards",
+			"move Robot backward indefinetly",
+			"1",
+			{
+				"inc": "#include \"stem.h\"",
+				"def": "Robot r;\n",
+				"setup": "\n",
+				"work": "r.resetMotorEncoder(motorR);\nr.resetMotorEncoder(motorL);\nr.moveMotor(motorR,-50);\nr.moveMotor(motorL,-50);\n",
+				"loop": ""
+			}
+		],
+		["w",
+			"turn Robot left for %n degrees",
+			"turn the robot to the left using swing turn",
+			"1",
+			{
+				"inc": "#include \"stem.h\"",
+				"def": "Robot r;\n",
+				"setup": "\n",
+				"work": "r.resetMotorEncoder(motorR);\nr.resetMotorEncoder(motorL);\nr.setEncoderTarget(motorR,360*0.0147*{0});\nr.moveMotor(motorR,50);\nr.wait();",
+				"loop": ""
+			}
+		],
+		["w",
+			"turn Robot right for %n degrees",
+			"turn the robot to the right using swing turn",
+			"1",
+			{
+				"inc": "#include \"stem.h\"",
+				"def": "Robot r;\n",
+				"setup": "\n",
+				"work": "r.resetMotorEncoder(motorR);\nr.resetMotorEncoder(motorL);\nr.setEncoderTarget(motorL,360*0.0147*{0});\nr.moveMotor(motorL,50);\nr.wait();",
+				"loop": ""
+			}
+		],
+		["w",
+			"Stop motor",
+			"Stop the motors",
+			"1",
+			{
+				"inc": "#include \"stem.h\"",
+				"def": "Robot r;\n",
+				"setup": "\n",
+				"work": "r.moveMotor(stopMotors,0);\n",
+				"loop": ""
+			}
+		],
+		["B",
+			"Touch sensor Value",
+			"touch sensor value",
+			{
+			"setup": "",
+			"inc": "#include \"stem.h\"",
+			"def": "Robot r;",
+			"work": "r.getSensorValue(touchSensor)",
+			"loop": ""
+		}],
+		["B",
+			"Ultra-sound sensor Value",
+			"ultra-sound value",
+			{
+			"setup": "",
+			"inc": "#include \"stem.h\"",
+			"def": "Robot r;",
+			"work": "r.getSensorValue(ultrasonic)",
+			"loop": ""
+		}],
+		["B",
+			"LineDetector left",
+			"LineDetector left",
+			{
+			"setup": "",
+			"inc": "#include \"stem.h\"",
+			"def": "Robot r;",
+			"work": "r.getSensorValue(lineDetectorLeft)",
+			"loop": ""
+		}],
+		["B",
+			"LineDetector right",
+			"LineDetector right",
+			{
+			"setup": "",
+			"inc": "#include \"stem.h\"",
+			"def": "Robot r;",
+			"work": "r.getSensorValue(lineDetectorRight)",
+			"loop": ""
+		}],
+		["B",
+			"hearing something",
+			"hearing something",
+			{
+			"setup": "",
+			"inc": "#include \"stem.h\"",
+			"def": "Robot r;",
+			"work": "r.getSensorValue(lineDetectorRight)",
+			"loop": ""
+		}],
+	],
+	"menus": {
+		
+	},
+	"values": {
+		
+	},
+	"translators": {
+		
+	}
+}
